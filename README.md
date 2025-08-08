@@ -7,15 +7,13 @@ This script automates the installation of essential applications using Winget, r
 # Features
 Installs popular applications silently via Winget, including:
 
-Bitwarden, ProtonVPN, Steam, Discord, Brave Browser, qBittorrent, and more.
+Bitwarden, ProtonVPN, Steam, Discord, Brave Browser, WinRAR, qBittorrent, Microsoft PC Manager, Autoruns, Notepad++, VLC and O&O ShutUp10++
 
 Removes common Windows 11 pre-installed apps considered unnecessary or intrusive.
 
 Disables advertising IDs, telemetry, location services, voice recognition, activity history, and other data collection features.
 
 Turns off suggested content on Start menu and lock screen.
-
-Requires administrator privileges to run.
 
 # How to Use
 Download the script file (.bat).
