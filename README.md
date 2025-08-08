@@ -1,46 +1,44 @@
-# My personal Windows 11 setup automation
+# Minha automação pessoal para configuração do Windows 11
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Overview
-This script automates the installation of essential applications using Winget, removes unwanted pre-installed Windows 11 apps (bloatware), and configures several privacy and telemetry settings to enhance your system’s security and performance.
+# Visão geral
+Este script automatiza a instalação de alguns aplicativos usando o Winget, remove aplicativos pré-instalados indesejados do Windows 11 (bloatware) e configura várias opções de privacidade e telemetria para melhorar a segurança e o desempenho do sistema.
 
-# Features
-Installs popular applications silently via Winget, including:
+# Funcionalidades
+Instala aplicativos via Winget, incluindo:
 
-Bitwarden, ProtonVPN, Steam, Discord, Brave Browser, WinRAR, qBittorrent, Microsoft PC Manager, Autoruns, Notepad++, VLC and O&O ShutUp10++
+Bitwarden, ProtonVPN, Steam, Discord, Navegador Brave, WinRAR, qBittorrent, Microsoft PC Manager, Autoruns, Notepad++, VLC e O&O ShutUp10++
 
-Removes common Windows 11 pre-installed apps considered unnecessary or intrusive.
+Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
 
-Disables advertising IDs, telemetry, location services, voice recognition, activity history, and other data collection features.
+Desativa IDs de publicidade, telemetria, serviços de localização, reconhecimento de voz, histórico de atividades e outras funções de coleta de dados.
 
-Turns off suggested content on Start menu and lock screen.
+Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
 
-# How to Use
-Download the script file (.bat).
+# Como usar
+Baixe o arquivo do script (.bat).
 
-Run as Administrator by right-clicking the file and selecting "Run as Administrator".
+Execute como Administrador clicando com o botão direito no arquivo e escolhendo "Executar como Administrador".
 
-The script will:
+O script irá:
 
-Check if Winget is installed.
+Verificar se o Winget está instalado.
 
-Install the listed apps silently.
+Instalar silenciosamente os aplicativos listados.
 
-Remove Windows 11 bloatware apps.
+Remover os apps bloatware do Windows 11.
 
-Apply privacy and telemetry disabling registry changes.
+Aplicar alterações no registro para desativar telemetria e privacidade.
 
-# Requirements
-Winget package manager (comes preinstalled on recent Windows versions).
+# Requisitos
+Gerenciador de pacotes Winget (já vem pré-instalado nas versões recentes do Windows).
 
-Administrator privileges.
+Privilégios de Administrador.
 
-# Notes
-The script modifies registry keys and removes built-in apps, so use it with caution.
+# Observações
+O script modifica chaves do registro e remove aplicativos internos, então use com cuidado.
 
-Changes apply to the current user and system-wide settings, but not automatically to new user profiles.
+As alterações são aplicadas ao usuário atual e configurações do sistema, mas não se aplicam automaticamente a novos perfis de usuário.
 
-Some apps and settings may differ depending on your Windows version.
+Alguns aplicativos e configurações podem variar dependendo da versão do Windows.
 
-# Contributing
-Feel free to open issues or submit pull requests for improvements or bug fixes.
