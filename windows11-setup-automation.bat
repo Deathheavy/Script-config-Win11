@@ -46,7 +46,7 @@ echo
 echo Removendo apps desnecessarios do Windows 11...
 
 :: Lista expandida
-set "bloat=Microsoft.BingNews Microsoft.BingWeather Microsoft.GetHelp Microsoft.Getstarted Microsoft.MicrosoftOfficeHub Microsoft.MicrosoftSolitaireCollection Microsoft.MicrosoftStickyNotes Microsoft.MixedReality.Portal Microsoft.People Microsoft.PowerAutomateDesktop Microsoft.SkypeApp Microsoft.Todos Microsoft.WindowsAlarms Microsoft.WindowsCamera Microsoft.windowscommunicationsapps Microsoft.WindowsFeedbackHub Microsoft.WindowsMaps Microsoft.XboxGameOverlay Microsoft.XboxGamingOverlay Microsoft.XboxSpeechToTextOverlay Microsoft.ZuneMusic Microsoft.ZuneVideo Microsoft.Clipchamp Microsoft.Xbox.TCUI Microsoft.XboxIdentityProvider MSTeams MicrosoftTeams"
+set "bloat=Microsoft.BingNews Microsoft.BingWeather Microsoft.GetHelp Microsoft.MicrosoftOfficeHub Microsoft.MicrosoftSolitaireCollection Microsoft.MicrosoftStickyNotes Microsoft.MixedReality.Portal Microsoft.People Microsoft.PowerAutomateDesktop Microsoft.SkypeApp Microsoft.Todos Microsoft.WindowsAlarms Microsoft.WindowsCamera Microsoft.windowscommunicationsapps Microsoft.WindowsFeedbackHub Microsoft.WindowsMaps Microsoft.XboxGameOverlay Microsoft.XboxGamingOverlay Microsoft.XboxSpeechToTextOverlay Microsoft.ZuneMusic Microsoft.ZuneVideo Microsoft.Clipchamp"
 
 for %%b in (%bloat%) do (
     powershell -Command "Get-AppxPackage -AllUsers %%b | Remove-AppxPackage -ErrorAction SilentlyContinue"
@@ -98,3 +98,4 @@ echo Todos os aplicativos foram instalados (se disponiveis).
 :: ============================================
 echo
 pause
+
