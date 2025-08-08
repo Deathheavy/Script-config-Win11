@@ -1,7 +1,7 @@
 # Windows 11 Setup Automation
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Overview
+# Overview
 This script automates the installation of essential applications using Winget, removes unwanted pre-installed Windows 11 apps (bloatware), and configures several privacy and telemetry settings to enhance your system’s security and performance.
 
 # Features
