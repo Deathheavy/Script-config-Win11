@@ -44,4 +44,3 @@ Alguns aplicativos e configurações podem variar dependendo da versão do Windo
 
 ---
 
-**Autor**: [Deathheavy](https://github.com/Deathheavy)
