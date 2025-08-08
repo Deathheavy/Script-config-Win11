@@ -5,7 +5,7 @@
 Este script automatiza a instalação de alguns aplicativos usando o Winget, remove aplicativos pré-instalados indesejados do Windows 11 (bloatware) e configura várias opções de privacidade e telemetria para melhorar a segurança e o desempenho do sistema.
 
 # Funcionalidades
-Instala aplicativos via Winget, incluindo:
+Instala aplicativos via Winget (Informações sobre os programas estão em Programas.txt):
 
 Bitwarden, ProtonVPN, Steam, Discord, Navegador Brave, WinRAR, qBittorrent, Microsoft PC Manager, Autoruns, Notepad++, VLC e O&O ShutUp10++
 
