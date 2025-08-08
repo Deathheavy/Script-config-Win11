@@ -1,4 +1,4 @@
-# Windows 11 Setup Automation
+# My personal Windows 11 setup automation
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Overview
