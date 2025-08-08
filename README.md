@@ -30,8 +30,6 @@ Remove Windows 11 bloatware apps.
 
 Apply privacy and telemetry disabling registry changes.
 
-When finished, the script will pause and show a completion message.
-
 # Requirements
 Winget package manager (comes preinstalled on recent Windows versions).
 
