@@ -77,7 +77,9 @@ Alguns aplicativos e configurações podem variar dependendo da versão do Windo
 Game Mode <br>
 Hardware-Accelerated GPU Scheduling<br>
 otimizações para jogos em janela<br>
-Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(off)<br>
+Configurações>Privacidade e Segurança>Permissões do Windows e Permissões dos Apps<br>
+Mouse 6/10 e Enhance Off
+Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(Off)<br>
 [ASR Rules](https://asrgen.streamlit.app/ASR_Configurator)<br>
 
 Drivers:<br>
