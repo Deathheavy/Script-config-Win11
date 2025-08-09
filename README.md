@@ -81,7 +81,8 @@ Configurações>Privacidade e Segurança>Permissões do Windows e Permissões do
 Mouse 6/10 e Enhance Off<br>
 Segurança do Windows>Firewall>Incoming Connections>Block All<br>
 Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(Off)<br>
-[ASR Rules](https://asrgen.streamlit.app/ASR_Configurator)<br>
+Mudar plano de energia<br>
+[ASR Rules](https://asrgen.streamlit.app/ASR_Configurator) - Aplicar regras ao Defender<br>
 
 Drivers:<br>
 [Amd](https://www.amd.com/pt/support/download/drivers.html)<br>
