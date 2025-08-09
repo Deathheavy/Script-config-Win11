@@ -174,7 +174,7 @@ echo =========================================
 setlocal enabledelayedexpansion
 set "adapter="
 
-:: Tenta obter o nome do adaptador ativo usando PowerShell
+:: Obter o nome do adaptador ativo usando PowerShell
 for /f "tokens=*" %%A in ('powershell -Command "Get-NetAdapter | Where-Object { $_.Status -eq 'Up' -and $_.LinkSpeed -ne '0 Bps' -and $_.Name -notlike '*Loopback*' } | Select-Object -ExpandProperty Name"') do (
     set "adapter=%%A"
 )
@@ -224,4 +224,5 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
