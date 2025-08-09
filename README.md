@@ -74,7 +74,7 @@ Alguns aplicativos e configurações podem variar dependendo da versão do Windo
 
 
 ## Lembrar de ativar manualmente
-Game Mode - <br>
+Game Mode <br>
 Hardware-Accelerated GPU Scheduling<br>
 otimizações para jogos em janela<br>
 Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(off)<br>
