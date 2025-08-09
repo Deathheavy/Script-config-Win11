@@ -1,6 +1,6 @@
 @echo off
 cls
-title Instalador de Apps via Winget + Otimizações do Windows
+title Instalador de Apps via Winget + Otimizacoes do Windows
 color 0A
 
 :: AVISO: Esse script altera configurações do sistema, registros e serviços. Use com cautela.
@@ -125,7 +125,7 @@ reg add "HKCU\Software\Microsoft\Clipboard" /v "EnableClipboardHistory" /t REG_D
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "ToastEnabled" /t REG_DWORD /d 0 /f
 
 :: =========================
-:: Desativar serviços desnecessarios do Windows 11
+:: Desativar servicos desnecessarios do Windows 11
 :: =========================
 echo =========================================
 echo Desativando serviços desnecessarios...
@@ -216,6 +216,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
