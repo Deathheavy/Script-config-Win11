@@ -128,7 +128,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "T
 :: Desativar servicos desnecessarios do Windows 11
 :: =========================
 echo =========================================
-echo Desativando serviços desnecessarios...
+echo Desativando servicos desnecessarios...
 echo =========================================
 
 :: Lista de serviços a desativar (seguro para maioria dos PCs domésticos)
@@ -216,6 +216,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
