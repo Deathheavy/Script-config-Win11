@@ -19,9 +19,7 @@ WinRAR — Programa para compactar e descompactar arquivos em vários formatos.<
 qBittorrent — Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
 Microsoft PC Manager — Ferramenta da Microsoft para otimização e gerenciamento do sistema.<br>
 Autoruns — Utilitário avançado para gerenciar programas que iniciam com o Windows.<br>
-Notepad++ — Editor de texto avançado para programadores e uso geral, com suporte a várias linguagens.<br>
 VLC — Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
-O&O ShutUp10++ — Ferramenta para controlar e desativar funções de telemetria e coleta de dados no Windows.<br>
 
 Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
 
