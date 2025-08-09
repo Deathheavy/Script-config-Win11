@@ -78,7 +78,7 @@ Game Mode <br>
 Hardware-Accelerated GPU Scheduling<br>
 otimizações para jogos em janela<br>
 Configurações>Privacidade e Segurança>Permissões do Windows e Permissões dos Apps<br>
-Mouse 6/10 e Enhance Off
+Mouse 6/10 e Enhance Off<br>
 Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(Off)<br>
 [ASR Rules](https://asrgen.streamlit.app/ASR_Configurator)<br>
 
