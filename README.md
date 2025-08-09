@@ -10,12 +10,12 @@ Instala aplicativos via Winget
 Programas instalados com o script:<br>
 **Obs. Se você não usa algum dos programas basta remover em aplicativos**
 
-Steam — Plataforma digital para compra e gerenciamento de jogos<br>
-Discord — Aplicativo de comunicação por voz, vídeo e texto<br>
-Brave Browser — Navegador focado em privacidade, bloqueia anúncios e rastreadores automaticamente.<br>
-WinRAR — Programa para compactar e descompactar arquivos em vários formatos.<br>
-qBittorrent — Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
-VLC — Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
+Steam - Plataforma digital para compra e gerenciamento de jogos<br>
+Discord - Aplicativo de comunicação por voz, vídeo e texto<br>
+Brave Browser - Navegador focado em privacidade, bloqueia anúncios e rastreadores automaticamente.<br>
+WinRAR - Programa para compactar e descompactar arquivos em vários formatos.<br>
+qBittorrent - Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
+VLC - Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
 
 Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
 
@@ -84,7 +84,7 @@ Mouse 6/10 e Enhance Off<br>
 Segurança do Windows>Firewall>Incoming Connections>Block All<br>
 Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(Off)<br>
 Mudar plano de energia<br>
-DNS over HTTPS<br>
+DNS over HTTPS(https://security.cloudflare-dns.com/dns-query)<br>
 [ASR Rules](https://asrgen.streamlit.app/ASR_Configurator) - Aplicar regras ao Defender<br>
 
 Drivers:<br>
