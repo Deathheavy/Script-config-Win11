@@ -72,5 +72,29 @@ O script modifica chaves do registro e remove aplicativos internos, então use c
 As alterações são aplicadas ao usuário atual e configurações do sistema, mas não se aplicam automaticamente a novos perfis de usuário.<br>
 Alguns aplicativos e configurações podem variar dependendo da versão do Windows.<br>
 
+
+## Lembrar de ativar manualmente
+Game Mode - <br>
+Hardware-Accelerated GPU Scheduling<br>
+otimizações para jogos em janela<br>
+Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(off)<br>
+[ASR Rules](https://asrgen.streamlit.app/ASR_Configurator)<br>
+
+Drivers:
+[Amd](https://www.amd.com/pt/support/download/drivers.html)<br>
+[Nvidia](https://www.nvidia.com/pt-br/drivers/)<br>
+[Intel](https://www.intel.com.br/content/www/br/pt/download-center/home.html)<br>
+[Samsung](https://semiconductor.samsung.com/consumer-storage/support/tools/)<br>
+[Visual c++](https://learn.microsoft.com/pt-br/cpp/windows/latest-supported-vc-redist?view=msvc-170)<br>
+
+## Recomendação de programas adicionais
+
+1. [WPD](https://wpd.app) - Bloquear a telemetria e os aplicativos do windows 11<br>
+2. [OOSU10](https://www.oo-software.com/en/shutup10) - Ferramenta para controlar e desativar funções de telemetria e coleta de dados no Windows.<br>
+3. [Revo Uninstaller](https://www.revouninstaller.com/br/revo-uninstaller-free-download/) - Aplicativo para limpar o sistema e também remover aplicativos do sistema<br>
+4. [Proton VPN](https://protonvpn.com) - A VPN aprimora a privacidade e a segurança online criptografando a conexão e mascarando sua IP<br>
+5. [Autoruns](https://learn.microsoft.com/pt-br/sysinternals/downloads/autoruns) - Utilitário avançado para gerenciar programas que iniciam com o Windows.<br>
+6. [Notepad++](https://notepad-plus-plus.org/downloads/) - Editor de texto avançado para programadores e uso geral, com suporte a várias linguagens.<br>
+
 ---
 
