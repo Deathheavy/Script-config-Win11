@@ -7,7 +7,7 @@ Este script automatiza a instalação de alguns aplicativos usando o Winget, rem
 ## Funcionalidades
 Instala aplicativos via Winget
 
-Programas instalados com o script:
+Programas instalados com o script:<br>
 **Obs. Se você não usa algum dos programas basta remover em aplicativos**
 
 Bitwarden — Gerenciador de senhas seguro e de código aberto para armazenar e gerar senhas.<br>
@@ -31,10 +31,10 @@ Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
 
 Remove a Cortana e desativa o Copilot e o Recall
 
-Configura a dns do sistema para a da Cloudflare(1.1.1.1 / 1.0.0.1)
+Configura a dns do sistema para a da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
 
-Desativa os serviços a seguir:
-**Obs. Se você usa algum dos serviços basta ativar novamente em services.msc**
+Desativa os serviços a seguir:<br>
+**Obs. Se você usa algum dos serviços basta ativar novamente em services.msc**<br>
 
 DiagTrack: Habilita o serviço de rastreamento de diagnósticos e telemetria para o Windows.<br>
 RetailDemo: Gerencia o modo de demonstração para varejo em dispositivos.<br>
@@ -59,24 +59,24 @@ BcastDVRUserService: Suporta a gravação de jogos e a transmissão (Game DVR/Xb
 lfsvc: Fornece serviços de localização geográfica para o dispositivo.<br>
 
 ## Como usar
-Baixe o arquivo do script (.bat).
-Execute como Administrador clicando com o botão direito no arquivo e escolhendo "Executar como Administrador".
+Baixe o arquivo do script (.bat).<br>
+Execute como Administrador clicando com o botão direito no arquivo e escolhendo "Executar como Administrador".<br>
 
-O script irá:
+O script irá:<br>
 
-Verificar se o Winget está instalado.
-Instalar silenciosamente os aplicativos listados.
-Remover os apps bloatware do Windows 11.
-Aplicar alterações no registro para desativar telemetria e privacidade.
+Verificar se o Winget está instalado.<br>
+Instalar silenciosamente os aplicativos listados.<br>
+Remover os apps bloatware do Windows 11.<br>
+Aplicar alterações no registro para desativar telemetria e privacidade.<br>
 
 ## Requisitos
-Gerenciador de pacotes Winget (já vem pré-instalado nas versões recentes do Windows).
-Privilégios de Administrador.
+Gerenciador de pacotes Winget (já vem pré-instalado nas versões recentes do Windows).<br>
+Privilégios de Administrador.<br>
 
 ## Observações
-O script modifica chaves do registro e remove aplicativos internos, então use com cuidado.
-As alterações são aplicadas ao usuário atual e configurações do sistema, mas não se aplicam automaticamente a novos perfis de usuário.
-Alguns aplicativos e configurações podem variar dependendo da versão do Windows.
+O script modifica chaves do registro e remove aplicativos internos, então use com cuidado.<br>
+As alterações são aplicadas ao usuário atual e configurações do sistema, mas não se aplicam automaticamente a novos perfis de usuário.<br>
+Alguns aplicativos e configurações podem variar dependendo da versão do Windows.<br>
 
 ---
 
