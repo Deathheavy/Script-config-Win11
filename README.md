@@ -59,9 +59,9 @@ Execute como Administrador clicando com o botão direito no arquivo e escolhendo
 O script irá:<br>
 
 Verificar se o Winget está instalado.<br>
-Instalar silenciosamente os aplicativos listados.<br>
-Remover os apps bloatware do Windows 11.<br>
-Aplicar alterações no registro para desativar telemetria e privacidade.<br>
+Instalar os aplicativos listados.<br>
+Remover os bloatware do Windows 11.<br>
+Aplicar alterações no registro para desativar telemetria e melhorar a privacidade.<br>
 
 ## Requisitos
 Gerenciador de pacotes Winget (já vem pré-instalado nas versões recentes do Windows).<br>
