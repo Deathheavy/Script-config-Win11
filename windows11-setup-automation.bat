@@ -178,7 +178,6 @@ for /f "tokens=2 delims=:" %%A in ('netsh interface show interface ^| findstr /R
     set "adapter=%%A"
 )
 
-:: Remove espaço à esquerda
 if defined adapter (
     set "adapter=!adapter:~1!"
 ) else (
@@ -212,6 +211,7 @@ echo Todas as operacoes foram concluídas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
