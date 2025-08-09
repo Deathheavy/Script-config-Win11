@@ -1,63 +1,70 @@
 @echo off
 cls
-title Instalador de Apps via Winget
+title Instalador de Apps via Winget + Otimizações do Windows
 color 0A
 
+:: AVISO: Esse script altera configurações do sistema, registros e serviços. Use com cautela.
+
+:: =========================
 :: Checar se o script está rodando como Administrador
-net session >nul 2>&1
-if %errorLevel% neq 0 (
+:: =========================
+>nul 2>&1 net session || (
     echo Este script precisa ser executado como Administrador.
     echo Tentando reiniciar com privilegios elevados...
     powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
 
+:: =========================
 :: Checar se o winget está instalado
+:: =========================
 where winget >nul 2>&1
-if %errorLevel% neq 0 (
-    echo O Winget nao foi encontrado no sistema.
+if %errorlevel% neq 0 (
+    echo Winget nao foi encontrado no sistema.
     echo Instale o App Installer da Microsoft Store e tente novamente.
     pause
     exit /b
 )
 
+:: Manifest
 winget --version >nul 2>&1
 if %errorlevel% equ 0 (
     winget settings --enable LocalManifest >nul 2>&1
 )
 
-echo Instalando os aplicativos usando Winget...
+:: =========================
+:: Instalar aplicativos
+:: =========================
 echo =========================================
-echo
-
-:: Lista de programas para instalar
+echo Instalando aplicativos com Winget...
+echo =========================================
 set "apps=Bitwarden.Bitwarden ProtonTechnologies.ProtonVPN Microsoft.PCManager Microsoft.Sysinternals.Autoruns Valve.Steam Discord.Discord RARLab.WinRAR Notepad++.Notepad++ VideoLAN.VLC O&O.ShutUp10 Brave.Brave qBittorrent.qBittorrent"
 
-:: Loop para instalar cada programa
 for %%i in (%apps%) do (
     echo Instalando %%i ...
-    winget install --id=%%i -e --silent
-    echo.
+    winget install --id=%%i -e --silent --accept-package-agreements --accept-source-agreements
+    echo -----------------------------------------
 )
 
+:: =========================
+:: Remover bloatware do Windows
+:: =========================
 echo =========================================
-echo
-:: Remover aplicativos pré-instalados (bloatware) do Windows 11
-echo Removendo apps desnecessarios do Windows 11...
-
-:: Lista expandida
-set "bloat=Microsoft.BingNews Microsoft.BingWeather Microsoft.GetHelp Microsoft.MicrosoftOfficeHub Microsoft.MicrosoftSolitaireCollection Microsoft.MicrosoftStickyNotes Microsoft.MixedReality.Portal Microsoft.People Microsoft.PowerAutomateDesktop Microsoft.SkypeApp Microsoft.Todos Microsoft.WindowsAlarms Microsoft.WindowsCamera Microsoft.windowscommunicationsapps Microsoft.WindowsFeedbackHub Microsoft.WindowsMaps Microsoft.XboxGameOverlay Microsoft.XboxGamingOverlay Microsoft.XboxSpeechToTextOverlay Microsoft.ZuneMusic Microsoft.ZuneVideo Microsoft.Clipchamp"
+echo Removendo aplicativos desnecessarios...
+echo =========================================
+set "bloat=Microsoft.BingNews Microsoft.BingWeather Microsoft.GetHelp Microsoft.MicrosoftOfficeHub Microsoft.MicrosoftSolitaireCollection Microsoft.MicrosoftStickyNotes Microsoft.People Microsoft.PowerAutomateDesktop Microsoft.SkypeApp Microsoft.Todos Microsoft.WindowsAlarms Microsoft.WindowsCamera Microsoft.windowscommunicationsapps Microsoft.WindowsFeedbackHub Microsoft.WindowsMaps Microsoft.XboxGameOverlay Microsoft.XboxGamingOverlay Microsoft.XboxSpeechToTextOverlay Microsoft.ZuneMusic Microsoft.ZuneVideo Microsoft.Clipchamp Microsoft.YourPhone Microsoft.Microsoft3DViewer Microsoft.Paint3D Microsoft.MixedReality.Portal MicrosoftTeams"
 
 for %%b in (%bloat%) do (
     powershell -Command "Get-AppxPackage -AllUsers %%b | Remove-AppxPackage -ErrorAction SilentlyContinue"
+    powershell -Command "Get-AppxProvisionedPackage -Online | Where-Object PackageName -like '*%%b*' | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue"
 )
 
-echo Remocao concluida.
+:: =========================
+:: Desativar coleta de dados e anúncios
+:: =========================
 echo =========================================
-echo
-
-:: Coleta de dados e anúncios
-echo Desligar a coleta de dados e anúncios
+echo Ajustando configuracoes de privacidade...
+echo =========================================
 
 :: Desativar ID de publicidade
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo' -Name 'Enabled' -Value 0"
@@ -87,15 +94,85 @@ powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\Cu
 :: Desativar sincronização com a conta Microsoft
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\SettingSync' -Name 'Enabled' -Value 0"
 
-echo Configurado
+:: Desativar tarefas agendadas de telemetria
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /Disable
+schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /Disable
+
+:: Desativar Windows Spotlight (tela de bloqueio)
+reg add "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsSpotlightFeatures" /t REG_DWORD /d 1 /f
+reg add "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsSpotlight" /t REG_DWORD /d 1 /f
+
+:: Desativar "Obtenha dicas, truques e sugestões ao usar o Windows"
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SystemPaneSuggestionsEnabled" /t REG_DWORD /d 0 /f
+
+:: Desativar anúncios no Explorador de Arquivos
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /t REG_DWORD /d 0 /f
+
+:: Desativar animações do Windows
+reg add "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" /t REG_SZ /d 0 /f
+
+:: Desativar transparência no menu iniciar e barra de tarefas
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "EnableTransparency" /t REG_DWORD /d 0 /f
+
+:: Desativar histórico da Área de Transferência
+reg add "HKCU\Software\Microsoft\Clipboard" /v "EnableClipboardHistory" /t REG_DWORD /d 0 /f
+
+:: Desativar notificações de sugestão do Windows
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "ToastEnabled" /t REG_DWORD /d 0 /f
+
+:: =========================
+:: Desativar serviços desnecessarios do Windows 11
+:: =========================
 echo =========================================
-echo
+echo Desativando serviços desnecessarios...
+echo =========================================
+
+:: Lista de serviços a desativar (seguro para maioria dos PCs domésticos)
+set "services=DiagTrack RetailDemo DiagnosticPolicyService SysMain Fax MapsBroker WSearch WMPNetworkSvc SCardSvr PrintSpooler RemoteRegistry RemoteAccess RemoteDesktopServices SharedAccess WindowsInsiderService TabletInputService bthserv PhoneSvc WbioSrvc BcastDVRUserService lfsvc"
+
+for %%s in (%services%) do (
+    echo Desativando o serviço %%s ...
+    sc stop %%s >nul 2>&1 || echo Servico %%s ja esta parado.
+    sc config %%s start= disabled >nul 2>&1
+    echo -----------------------------------------
+)
+
+:: =========================
+:: Remover Cortana, Copilot e Recall
+:: =========================
+echo =========================================
+echo Removendo Cortana, Copilot e Recall...
+echo =========================================
+
+:: Remover Cortana
+winget uninstall --id=Microsoft.549981C3F5F10 -e --silent
+powershell -Command "Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-AppxPackage -ErrorAction SilentlyContinue"
+powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsoft.549981C3F5F10 -ErrorAction SilentlyContinue"
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
+
+:: Desativar Copilot
+powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot' -Name 'TurnOffWindowsCopilot' -Value 1 -Force"
+powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowCopilotButton' -Value 0 -Force"
+
+:: Desativar Windows Recall
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsAI' -Name 'DisableAIDataAnalysis' -Value 1 -Force"
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsAI' -Name 'DisableRecall' -Value 1 -Force"
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsAI' -Name 'DisableTextCapture' -Value 1 -Force"
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'DisableAIDataCapture' -Value 1 -Force"
+
+:: =========================
+:: Finalização
+:: =========================
 color 0B
-echo Todos os aplicativos foram instalados (se disponiveis).
-:: ============================================
-:: Nome: Instalador de Apps, otimização e debloat do Windows
-:: Autor: Deathheavy
-:: ============================================
-echo
+echo.
+echo =========================================
+echo Todas as operacoes foram concluídas.
+echo Reinicie o computador para aplicar todas as configuracoes.
+echo =========================================
 pause
+
 
