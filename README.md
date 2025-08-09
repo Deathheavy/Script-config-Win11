@@ -80,7 +80,7 @@ otimizações para jogos em janela<br>
 Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(off)<br>
 [ASR Rules](https://asrgen.streamlit.app/ASR_Configurator)<br>
 
-Drivers:
+Drivers:<br>
 [Amd](https://www.amd.com/pt/support/download/drivers.html)<br>
 [Nvidia](https://www.nvidia.com/pt-br/drivers/)<br>
 [Intel](https://www.intel.com.br/content/www/br/pt/download-center/home.html)<br>
