@@ -31,7 +31,7 @@ Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
 
 Remove a Cortana e desativa o Copilot e o Recall
 
-Configura a dns do sistema para a da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
+Configura o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
 
 Desativa os serviços a seguir:<br>
 **Obs. Se você usa algum dos serviços basta ativar novamente em services.msc**<br>
