@@ -73,6 +73,8 @@ As alterações são aplicadas ao usuário atual e configurações do sistema, m
 Alguns aplicativos e configurações podem variar dependendo da versão do Windows.<br>
 
 
+---
+
 ## Lembrar de ativar manualmente
 Game Mode <br>
 Hardware-Accelerated GPU Scheduling<br>
@@ -101,5 +103,27 @@ Drivers:<br>
 5. [Autoruns](https://learn.microsoft.com/pt-br/sysinternals/downloads/autoruns) - Utilitário avançado para gerenciar programas que iniciam com o Windows.<br>
 6. [Notepad++](https://notepad-plus-plus.org/downloads/) - Editor de texto avançado para programadores e uso geral, com suporte a várias linguagens.<br>
 
----
+## Lista de sites confiáveis para torrent(Recomendado usar Adblock):
 
+1. https://1337x.to - Torrents no geral, faça o download somente de uploaders confiáveis
+2. https://fitgirl-repacks.site - A melhor repacker de jogos da web e a melhor fonte de jogos confiáveis
+3. https://byxatab.com - Fonte de jogos confiáveis
+4. https://elamigos.site - Fonte de jogos e updates para jogos crackeados
+5. https://online-fix.me - Concede soluções para jogar COOP em jogos crackeados
+
+## Assistir séries e filmes PC/Smarthphone
+
+1. Acesse [Stremio](https://www.stremio.com/translation/br)
+2. Clique em "Login" no canto superior direito
+3. clique em Sign up with email
+4. Preencha os campos solicitados
+5. Após criar a conta, faça o download do aplicativo e acesse a sua conta
+6. Acesse [Torrentio](https://torrentio.strem.fun/configure)
+7. Em Providers: Desmarque os providers com RU, FR, IT, ES, MX, PL e Magnet DL
+8. Em Sorting: By Seeders
+9. Em Exclude qualities/resolutions: Marque para excluir Screner e Cam
+10. Clique em Install com o seu aplicativo Stremio aberto e confirme a instalação no aplicativo.
+
+Obs. Para assistir em seu smarthphone basta fazer o download do Stremio e acessar com uma conta que já foi configurada no PC.
+
+---
