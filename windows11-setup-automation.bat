@@ -148,12 +148,6 @@ echo =========================================
 echo Removendo Cortana, Copilot e Recall...
 echo =========================================
 
-:: Remover Cortana
-winget uninstall --id=Microsoft.549981C3F5F10 -e --silent
-powershell -Command "Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-AppxPackage -ErrorAction SilentlyContinue"
-powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsoft.549981C3F5F10 -ErrorAction SilentlyContinue"
-powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
-
 :: Desativar Copilot
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot' -Name 'TurnOffWindowsCopilot' -Value 1 -Force"
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowCopilotButton' -Value 0 -Force"
@@ -163,6 +157,12 @@ powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\W
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsAI' -Name 'DisableRecall' -Value 1 -Force"
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsAI' -Name 'DisableTextCapture' -Value 1 -Force"
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'DisableAIDataCapture' -Value 1 -Force"
+
+:: Remover Cortana
+winget uninstall --id=Microsoft.549981C3F5F10 -e --silent
+powershell -Command "Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-AppxPackage -ErrorAction SilentlyContinue"
+powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsoft.549981C3F5F10 -ErrorAction SilentlyContinue"
+powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
 
 :: =========================
 :: Configurar DNS no adaptador de rede ativo
@@ -216,6 +216,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
