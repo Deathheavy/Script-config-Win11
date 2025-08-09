@@ -135,7 +135,7 @@ echo =========================================
 set "services=DiagTrack RetailDemo DiagnosticPolicyService SysMain Fax MapsBroker WSearch WMPNetworkSvc SCardSvr PrintSpooler RemoteRegistry RemoteAccess RemoteDesktopServices SharedAccess WindowsInsiderService TabletInputService bthserv PhoneSvc WbioSrvc BcastDVRUserService lfsvc"
 
 for %%s in (%services%) do (
-    echo Desativando o serviço %%s ...
+    echo Desativando o servico %%s ...
     sc stop %%s >nul 2>&1 || echo Servico %%s ja esta parado.
     sc config %%s start= disabled >nul 2>&1
     echo -----------------------------------------
@@ -216,6 +216,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
