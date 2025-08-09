@@ -174,14 +174,15 @@ echo =========================================
 setlocal enabledelayedexpansion
 set "adapter="
 
-for /f "tokens=2 delims=:" %%A in ('netsh interface show interface ^| findstr /R /C:"Connected" ^| findstr /V "Loopback"') do (
+:: Tenta obter o nome do adaptador ativo usando PowerShell
+for /f "tokens=*" %%A in ('powershell -Command "Get-NetAdapter | Where-Object { $_.Status -eq 'Up' -and $_.LinkSpeed -ne '0 Bps' -and $_.Name -notlike '*Loopback*' } | Select-Object -ExpandProperty Name"') do (
     set "adapter=%%A"
 )
 
 if defined adapter (
-    set "adapter=!adapter:~1!"
+    set "adapter=!adapter!"
 ) else (
-    echo Nenhum adaptador conectado encontrado.
+    echo Nenhum adaptador conectado ou ativo encontrado.
     goto :end_dns_config
 )
 
@@ -199,10 +200,17 @@ netsh interface ipv6 add dns name="!adapter!" 2606:4700:4700::1001 index=2
 
 echo DNS IPv6 configurado com sucesso no adaptador "!adapter!".
 
+:: Limpar cache DNS e reiniciar o serviço DNS Client antes de configurar o DoH
+ipconfig /flushdns >nul 2>&1
+net stop Dnscache >nul 2>&1
+net start Dnscache >nul 2>&1
+
 :: Configurar DNS over HTTPS via registro
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v EnableAutoDoh /t REG_DWORD /d 2 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_1 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_2 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
+
+echo DNS over HTTPS configurado via registro.
 
 :end_dns_config
 endlocal
@@ -216,16 +224,3 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
-
-
-
-
-
-
-
-
-
-
-
-
-
