@@ -165,6 +165,44 @@ powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\W
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer' -Name 'DisableAIDataCapture' -Value 1 -Force"
 
 :: =========================
+:: Configurar DNS no adaptador de rede ativo
+:: =========================
+echo =========================================
+echo Configurando DNS no adaptador de rede ativo...
+echo =========================================
+
+setlocal enabledelayedexpansion
+set "adapter="
+
+for /f "tokens=2 delims=:" %%A in ('netsh interface show interface ^| findstr /R /C:"Connected" ^| findstr /V "Loopback"') do (
+    set "adapter=%%A"
+)
+
+:: Remove espaço à esquerda
+if defined adapter (
+    set "adapter=!adapter:~1!"
+) else (
+    echo Nenhum adaptador conectado encontrado.
+    goto :end_dns_config
+)
+
+echo Adaptador detectado: "!adapter!"
+
+:: Configurar DNS (Cloudflare)
+netsh interface ip set dns name="!adapter!" static 1.1.1.1
+netsh interface ip add dns name="!adapter!" 1.0.0.1 index=2
+
+:: Configurar DNS over HTTPS via registro
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v EnableAutoDoh /t REG_DWORD /d 2 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_1 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_2 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
+
+echo DNS configurado com sucesso no adaptador "!adapter!".
+
+:end_dns_config
+endlocal
+
+:: =========================
 :: Finalização
 :: =========================
 color 0B
@@ -174,6 +212,7 @@ echo Todas as operacoes foram concluídas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
