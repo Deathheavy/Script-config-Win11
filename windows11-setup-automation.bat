@@ -38,7 +38,7 @@ if %errorlevel% equ 0 (
 echo =========================================
 echo Instalando aplicativos com Winget...
 echo =========================================
-set "apps=Bitwarden.Bitwarden ProtonTechnologies.ProtonVPN Microsoft.PCManager Microsoft.Sysinternals.Autoruns Valve.Steam Discord.Discord RARLab.WinRAR Notepad++.Notepad++ VideoLAN.VLC O&O.ShutUp10 Brave.Brave qBittorrent.qBittorrent"
+set "apps=Bitwarden.Bitwarden ProtonTechnologies.ProtonVPN Microsoft.PCManager Microsoft.Sysinternals.Autoruns Valve.Steam Discord.Discord RARLab.WinRAR VideoLAN.VLC Brave.Brave qBittorrent.qBittorrent"
 
 for %%i in (%apps%) do (
     echo Instalando %%i ...
@@ -217,6 +217,7 @@ echo Todas as operacoes foram concluídas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
