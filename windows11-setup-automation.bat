@@ -38,7 +38,7 @@ if %errorlevel% equ 0 (
 echo =========================================
 echo Instalando aplicativos com Winget...
 echo =========================================
-set "apps=Bitwarden.Bitwarden ProtonTechnologies.ProtonVPN Microsoft.PCManager Microsoft.Sysinternals.Autoruns Valve.Steam Discord.Discord RARLab.WinRAR VideoLAN.VLC Brave.Brave qBittorrent.qBittorrent"
+set "apps=Bitwarden.Bitwarden Microsoft.Sysinternals.Autoruns Valve.Steam Discord.Discord RARLab.WinRAR VideoLAN.VLC Brave.Brave qBittorrent.qBittorrent"
 
 for %%i in (%apps%) do (
     echo Instalando %%i ...
@@ -210,13 +210,13 @@ endlocal
 :: =========================
 :: Finalização
 :: =========================
-color 0B
 echo.
 echo =========================================
-echo Todas as operacoes foram concluídas.
+echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
