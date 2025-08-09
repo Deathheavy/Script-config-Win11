@@ -11,13 +11,11 @@ Programas instalados com o script:<br>
 **Obs. Se você não usa algum dos programas basta remover em aplicativos**
 
 Bitwarden — Gerenciador de senhas seguro e de código aberto para armazenar e gerar senhas.<br>
-ProtonVPN — Serviço de VPN com versão gratuita focado em privacidade e segurança online.<br>
 Steam — Plataforma digital para compra e gerenciamento de jogos<br>
 Discord — Aplicativo de comunicação por voz, vídeo e texto<br>
 Brave Browser — Navegador focado em privacidade, bloqueia anúncios e rastreadores automaticamente.<br>
 WinRAR — Programa para compactar e descompactar arquivos em vários formatos.<br>
 qBittorrent — Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
-Microsoft PC Manager — Ferramenta da Microsoft para otimização e gerenciamento do sistema.<br>
 Autoruns — Utilitário avançado para gerenciar programas que iniciam com o Windows.<br>
 VLC — Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
 
