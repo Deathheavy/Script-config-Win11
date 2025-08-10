@@ -24,8 +24,6 @@ Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
 
 Remove a Cortana e desativa o Copilot e o Recall
 
-Configura o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
-
 Desativa os serviços a seguir:<br>
 **Obs. Se você usa algum dos serviços basta ativar novamente em services.msc**<br>
 
@@ -50,6 +48,12 @@ PhoneSvc: Gerencia a integração com smartphones para recursos como chamadas e 
 WbioSrvc: Habilita a coleta e comparação de dados biométricos (ex: impressão digital, reconhecimento facial).<br>
 BcastDVRUserService: Suporta a gravação de jogos e a transmissão (Game DVR/Xbox Game Bar).<br>
 lfsvc: Fornece serviços de localização geográfica para o dispositivo.<br>
+
+Configura o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
+
+Identificar a fabricante da GPU e abrir o site dos drivers<br>
+
+Abrir as configurações de desempenho do Windows<br>
 
 ## Como usar
 Baixe o arquivo do script (.bat).<br>
