@@ -3,11 +3,13 @@ cls
 title Instalador de Apps via Winget e Otimizacoes do Windows
 color 0A
 
-:: AVISO: Esse script altera configurações do sistema, registros e serviços. Use com cautela.
+echo AVISO
+echo Esse script altera configuracoes do sistema, registros e servicos
+echo Use com cautela e verifique o readme no Github.
 
-:: =========================
-:: Checar se o script está rodando como Administrador
-:: =========================
+echo =========================================
+echo Verificando se o script está rodando como Administrador
+echo =========================================
 >nul 2>&1 net session || (
     echo Este script precisa ser executado como Administrador.
     echo Tentando reiniciar com privilegios elevados...
@@ -15,9 +17,9 @@ color 0A
     exit /b
 )
 
-:: =========================
-:: Backup do Registro
-:: =========================
+echo =========================================
+echo Backup do Registro
+echo =========================================
 set "BACKUPDIR=%~dp0"
 set "BACKUPDATE=%date:~-4%-%date:~3,2%-%date:~0,2%"  :: AAAA-MM-DD
 set "HKLM_BACKUP=%BACKUPDIR%HKLM_SOFTWARE_backup_%BACKUPDATE%.reg"
@@ -43,9 +45,9 @@ if %errorlevel% neq 0 (
     echo [OK] Backup de HKCU\SOFTWARE concluido
 )
 
-:: =========================
-:: Checar se o winget está instalado
-:: =========================
+echo =========================================
+echo Verificando se o Winget está instalado
+echo =========================================
 where winget >nul 2>&1
 if %errorlevel% neq 0 (
     echo Winget nao foi encontrado no sistema.
@@ -60,9 +62,6 @@ if %errorlevel% equ 0 (
     winget settings --enable LocalManifest >nul 2>&1
 )
 
-:: =========================
-:: Instalar aplicativos
-:: =========================
 echo =========================================
 echo Instalando aplicativos com Winget...
 echo =========================================
@@ -74,9 +73,6 @@ for %%i in (%apps%) do (
     echo -----------------------------------------
 )
 
-:: =========================
-:: Remover bloatware do Windows
-:: =========================
 echo =========================================
 echo Removendo aplicativos desnecessarios...
 echo =========================================
@@ -87,9 +83,6 @@ for %%b in (%bloat%) do (
     powershell -Command "Get-AppxProvisionedPackage -Online | Where-Object PackageName -like '*%%b*' | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue"
 )
 
-:: =========================
-:: Desativar coleta de dados e anúncios
-:: =========================
 echo =========================================
 echo Ajustando configuracoes de privacidade...
 echo =========================================
@@ -149,9 +142,6 @@ reg add "HKCU\Software\Microsoft\Clipboard" /v "EnableClipboardHistory" /t REG_D
 :: Desativar notificações de sugestão do Windows
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "ToastEnabled" /t REG_DWORD /d 0 /f
 
-:: =========================
-:: Desativar servicos desnecessarios do Windows 11
-:: =========================
 echo =========================================
 echo Desativando servicos desnecessarios...
 echo =========================================
@@ -166,9 +156,6 @@ for %%s in (%services%) do (
     echo -----------------------------------------
 )
 
-:: =========================
-:: Remover Cortana, Copilot e Recall
-:: =========================
 echo =========================================
 echo Removendo Cortana, Copilot e Recall...
 echo =========================================
@@ -189,17 +176,14 @@ powershell -Command "Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-
 powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsoft.549981C3F5F10 -ErrorAction SilentlyContinue"
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
 
-:: =========================
-echo Desligar aceleração do mouse e configurar a sensibilidade do mouse
-:: =========================
+echo =========================================
+echo Desligando aceleracao do mouse e configurando a sensibilidade do mouse...
+echo =========================================
 REG ADD "HKCU\Control Panel\Mouse" /v MouseSpeed /d 0 /t REG_SZ /f
 REG ADD "HKCU\Control Panel\Mouse" /v MouseThreshold1 /d 0 /t REG_SZ /f
 REG ADD "HKCU\Control Panel\Mouse" /v MouseThreshold2 /d 0 /t REG_SZ /f
 REG ADD "HKCU\Control Panel\Mouse" /v MouseSensitivity /d 10 /t REG_SZ /f
 
-:: =========================
-:: Configurar DNS no adaptador de rede ativo
-:: =========================
 echo =========================================
 echo Configurando DNS no adaptador de rede ativo...
 echo =========================================
@@ -248,9 +232,9 @@ echo DNS over HTTPS configurado via registro.
 :end_dns_config
 endlocal
 
-:: =========================
-echo Identificar a fabricante da GPU e abrir o site dos drivers
-:: =========================
+echo =========================================
+echo Identificando a fabricante da GPU e abrindo o site dos drivers...
+echo =========================================
 
 setlocal
 
@@ -284,9 +268,9 @@ if %errorlevel%==0 (
 :continue
 endlocal
 echo.
-:: =========================
+echo =========================================
 echo Abrindo a configuracao de desempenho do Windows...
-:: =========================
+echo =========================================
 SystemPropertiesPerformance.exe
 echo.
 echo O site de drivers da sua GPU foi aberto em seu navegador e a aba de opcoes de desempenho do Windows foi iniciada
@@ -303,3 +287,4 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
