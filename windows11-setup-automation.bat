@@ -16,6 +16,34 @@ color 0A
 )
 
 :: =========================
+:: Backup do Registro
+:: =========================
+set "BACKUPDIR=%~dp0"
+set "BACKUPDATE=%date:~-4%-%date:~3,2%-%date:~0,2%"  :: AAAA-MM-DD
+set "HKLM_BACKUP=%BACKUPDIR%HKLM_SOFTWARE_backup_%BACKUPDATE%.reg"
+set "HKCU_BACKUP=%BACKUPDIR%HKCU_SOFTWARE_backup_%BACKUPDATE%.reg"
+
+echo Criando backup do registro em:
+echo  %HKLM_BACKUP%
+echo  %HKCU_BACKUP%
+
+:: Backup HKLM\SOFTWARE
+reg export HKLM\SOFTWARE "%HKLM_BACKUP%" /y >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [ERRO] Falha ao exportar HKLM\SOFTWARE
+) else (
+    echo [OK] Backup de HKLM\SOFTWARE concluido
+)
+
+:: Backup HKCU\SOFTWARE
+reg export HKCU\SOFTWARE "%HKCU_BACKUP%" /y >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [ERRO] Falha ao exportar HKCU\SOFTWARE
+) else (
+    echo [OK] Backup de HKCU\SOFTWARE concluido
+)
+
+:: =========================
 :: Checar se o winget está instalado
 :: =========================
 where winget >nul 2>&1
@@ -197,7 +225,7 @@ netsh interface ipv6 add dns name="!adapter!" 2606:4700:4700::1001 index=2
 
 echo DNS IPv6 configurado com sucesso no adaptador "!adapter!".
 
-:: Limpar cache DNS e reiniciar o serviço DNS Client antes de configurar o DoH
+:: Limpar cache DNS e reiniciar o serviço DNS Client
 ipconfig /flushdns >nul 2>&1
 net stop Dnscache >nul 2>&1
 net start Dnscache >nul 2>&1
@@ -221,6 +249,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
