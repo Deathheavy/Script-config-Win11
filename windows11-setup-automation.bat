@@ -190,6 +190,14 @@ powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsof
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
 
 :: =========================
+echo Desligar aceleração do mouse e configurar a sensibilidade do mouse
+:: =========================
+REG ADD "HKCU\Control Panel\Mouse" /v MouseSpeed /d 0 /t REG_SZ /f
+REG ADD "HKCU\Control Panel\Mouse" /v MouseThreshold1 /d 0 /t REG_SZ /f
+REG ADD "HKCU\Control Panel\Mouse" /v MouseThreshold2 /d 0 /t REG_SZ /f
+REG ADD "HKCU\Control Panel\Mouse" /v MouseSensitivity /d 10 /t REG_SZ /f
+
+:: =========================
 :: Configurar DNS no adaptador de rede ativo
 :: =========================
 echo =========================================
@@ -241,14 +249,48 @@ echo DNS over HTTPS configurado via registro.
 endlocal
 
 :: =========================
-:: Finalização
+echo Identificar a fabricante da GPU e abrir o site dos drivers
 :: =========================
+
+setlocal
+
+:: Obter a fabricante da GPU via PowerShell
+for /f "usebackq delims=" %%G in (`powershell -NoProfile -Command "Get-CimInstance Win32_VideoController | Select-Object -ExpandProperty Name"`) do (
+    set "GPU=%%G"
+    goto :FoundGPU
+)
+
+:FoundGPU
+echo GPU detectada: %GPU%
+
+echo %GPU% | findstr /I "NVIDIA" >nul
+if %errorlevel%==0 (
+    start https://www.nvidia.com/pt-br/drivers/
+    goto :continue
+)
+
+echo %GPU% | findstr /I "AMD" >nul
+if %errorlevel%==0 (
+    start https://www.amd.com/pt/support/download/drivers.html
+    goto :continue
+)
+
+echo %GPU% | findstr /I "Intel" >nul
+if %errorlevel%==0 (
+    start https://www.intel.com.br/content/www/br/pt/download-center/
+    goto :continue
+)
+
+:continue
+endlocal
+
 echo.
 echo =========================================
 echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
