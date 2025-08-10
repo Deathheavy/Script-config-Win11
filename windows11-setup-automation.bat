@@ -8,7 +8,7 @@ echo Esse script altera configuracoes do sistema, registros e servicos
 echo Use com cautela e verifique o readme no Github.
 
 echo =========================================
-echo Verificando se o script está rodando como Administrador
+echo Verificando se o script esta rodando como Administrador
 echo =========================================
 >nul 2>&1 net session || (
     echo Este script precisa ser executado como Administrador.
@@ -46,7 +46,7 @@ if %errorlevel% neq 0 (
 )
 
 echo =========================================
-echo Verificando se o Winget está instalado
+echo Verificando se o Winget esta instalado
 echo =========================================
 where winget >nul 2>&1
 if %errorlevel% neq 0 (
@@ -72,7 +72,7 @@ for %%i in (%apps%) do (
     winget install --id=%%i -e --silent --accept-package-agreements --accept-source-agreements
     echo -----------------------------------------
 )
-
+color 0A
 echo =========================================
 echo Removendo aplicativos desnecessarios...
 echo =========================================
@@ -271,7 +271,9 @@ echo.
 echo =========================================
 echo Abrindo a configuracao de desempenho do Windows...
 echo =========================================
+
 SystemPropertiesPerformance.exe
+
 echo.
 echo O site de drivers da sua GPU foi aberto em seu navegador e a aba de opcoes de desempenho do Windows foi iniciada
 echo Faca o download do driver atualizado da sua GPU.
@@ -287,4 +289,5 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
