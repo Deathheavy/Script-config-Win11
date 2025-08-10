@@ -176,6 +176,7 @@ powershell -Command "Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-
 powershell -Command "Remove-AppxProvisionedPackage -Online -PackageName Microsoft.549981C3F5F10 -ErrorAction SilentlyContinue"
 powershell -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -Value 0 -Force"
 
+color 0A
 echo =========================================
 echo Desligando aceleracao do mouse e configurando a sensibilidade do mouse...
 echo =========================================
@@ -286,6 +287,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
