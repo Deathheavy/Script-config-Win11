@@ -267,27 +267,25 @@ if %errorlevel%==0 (
 
 :continue
 endlocal
-echo.
+
 echo =========================================
 echo Abrindo a configuracao de desempenho do Windows...
 echo =========================================
 
 SystemPropertiesPerformance.exe
 
-echo.
 echo O site de drivers da sua GPU foi aberto em seu navegador e a aba de opcoes de desempenho do Windows foi iniciada
 echo Faca o download do driver atualizado da sua GPU.
-echo.
 echo E nas Opcoes de Desempenho marque a opcao Customizado e depois marque
 echo Mostrar miniaturas em vez de ícones
 echo Mostrar retangulo de selecaoo translucido
 echo Bordas suaves das fontes da tela
 echo Use sombras projetadas para rotulos de icones na area de trabalho
-echo.
 echo =========================================
 echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
