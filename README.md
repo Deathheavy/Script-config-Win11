@@ -17,11 +17,11 @@ WinRAR - Programa para compactar e descompactar arquivos em vários formatos.<br
 qBittorrent - Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
 VLC - Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
 
-**2.** Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
+**2.** Remove os apps pré-instalados do Windows 11 que são considerados desnecessários ou invasivos.
 
 **3.** Desativa IDs de publicidade, telemetria, serviços de localização, histórico de atividades e outras funções de coleta de dados.
 
-**4.** Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
+**4.** Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio, notificações de sugestão do Windows, histórico da Área de Transferência, animações do Windows e anúncios no Explorador de Arquivos
 
 **5.** Remove a Cortana e desativa o Copilot e o Recall
 
