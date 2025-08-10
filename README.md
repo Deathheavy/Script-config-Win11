@@ -4,6 +4,7 @@
 Este script automatiza a instalação de alguns aplicativos usando o Winget, remove aplicativos pré-instalados indesejados do Windows 11 (bloatware) e configura várias opções de privacidade e telemetria para melhorar a segurança e o desempenho do sistema.
 
 ## Funcionalidades
+**Obs. O script cria um backup do registro no local em que estiver**
 
 **1.** Instala aplicativos via Winget
 
