@@ -49,7 +49,9 @@ WbioSrvc: Habilita a coleta e comparação de dados biométricos (ex: impressão
 BcastDVRUserService: Suporta a gravação de jogos e a transmissão (Game DVR/Xbox Game Bar).<br>
 lfsvc: Fornece serviços de localização geográfica para o dispositivo.<br>
 
-Configura o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
+Configurar o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
+
+Desligar a aceleração do mouse e configurar a sensibilidade<br>
 
 Identificar a fabricante da GPU e abrir o site dos drivers<br>
 
@@ -58,13 +60,6 @@ Abrir as configurações de desempenho do Windows<br>
 ## Como usar
 Baixe o arquivo do script (.bat).<br>
 Execute como Administrador clicando com o botão direito no arquivo e escolhendo "Executar como Administrador".<br>
-
-O script irá:<br>
-
-Verificar se o Winget está instalado.<br>
-Instalar os aplicativos listados.<br>
-Remover os bloatware do Windows 11.<br>
-Aplicar alterações no registro para desativar telemetria e melhorar a privacidade.<br>
 
 ## Requisitos
 Gerenciador de pacotes Winget (já vem pré-instalado nas versões recentes do Windows).<br>
@@ -78,16 +73,12 @@ Alguns aplicativos e configurações podem variar dependendo da versão do Windo
 
 ---
 
-## Lembrar de ativar manualmente
-Game Mode <br>
-Hardware-Accelerated GPU Scheduling<br>
-otimizações para jogos em janela<br>
+## Configurar manualmente
 Configurações>Privacidade e Segurança>Permissões do Windows e Permissões dos Apps<br>
-Mouse 6/10 e Enhance Off<br>
 Segurança do Windows>Firewall>Incoming Connections>Block All<br>
-Win + R: **SystemPropertiesAdvanced** - Performace(Visual e Memoria Virtual) / Remote(Off)<br>
-Mudar plano de energia<br>
-DNS over HTTPS(https://security.cloudflare-dns.com/dns-query)<br>
+Win + R: **SystemPropertiesAdvanced** - Em Performace configurar a Memoria Virtual de acordo com a quantidade de RAM e desligar o Acesso Remoto<br>
+Mudar o plano de energia<br>
+Configurar o navegador e o DNS over HTTPS(https://security.cloudflare-dns.com/dns-query) no navegador<br>
 [ASR Rules](https://asrgen.streamlit.app/ASR_Configurator) - Aplicar regras ao Defender<br>
 
 Drivers:<br>
