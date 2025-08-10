@@ -272,21 +272,24 @@ endlocal
 echo =========================================
 echo Abrindo a configuracao de desempenho do Windows...
 echo =========================================
-
-SystemPropertiesPerformance.exe
-
 echo O site de drivers da sua GPU foi aberto em seu navegador e a aba de opcoes de desempenho do Windows foi iniciada
 echo Faca o download do driver atualizado da sua GPU.
 echo E nas Opcoes de Desempenho marque a opcao Customizado e depois marque
-echo Mostrar miniaturas em vez de ícones
-echo Mostrar retangulo de selecaoo translucido
+echo Mostrar miniaturas em vez de icones
+echo Mostrar retangulo de selecao translucido
 echo Bordas suaves das fontes da tela
 echo Use sombras projetadas para rotulos de icones na area de trabalho
+echo Apos configurar e aplicar as configuracoes na aba de desempenho
+echo clique em ok nas opcoes de desempenho para fechar a janela
+
+SystemPropertiesPerformance.exe
+
 echo =========================================
 echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
