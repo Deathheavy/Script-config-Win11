@@ -4,7 +4,8 @@
 Este script automatiza a instalação de alguns aplicativos usando o Winget, remove aplicativos pré-instalados indesejados do Windows 11 (bloatware) e configura várias opções de privacidade e telemetria para melhorar a segurança e o desempenho do sistema.
 
 ## Funcionalidades
-Instala aplicativos via Winget
+
+**1.** Instala aplicativos via Winget
 
 Programas instalados com o script:<br>
 **Obs. Se você não usa algum dos programas basta remover em aplicativos**
@@ -16,15 +17,15 @@ WinRAR - Programa para compactar e descompactar arquivos em vários formatos.<br
 qBittorrent - Cliente de torrent leve e de código aberto para download de arquivos P2P.<br>
 VLC - Reprodutor multimídia versátil que suporta praticamente todos os formatos de vídeo e áudio.<br>
 
-Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
+**2.** Remove apps comuns pré-instalados no Windows 11 considerados desnecessários ou invasivos.
 
-Desativa IDs de publicidade, telemetria, serviços de localização, reconhecimento de voz, histórico de atividades e outras funções de coleta de dados.
+**3.** Desativa IDs de publicidade, telemetria, serviços de localização, histórico de atividades e outras funções de coleta de dados.
 
-Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
+**4.** Desliga conteúdos sugeridos no menu Iniciar e na tela de bloqueio.
 
-Remove a Cortana e desativa o Copilot e o Recall
+**5.** Remove a Cortana e desativa o Copilot e o Recall
 
-Desativa os serviços a seguir:<br>
+**6.** Desativa os serviços a seguir:<br>
 **Obs. Se você usa algum dos serviços basta ativar novamente em services.msc**<br>
 
 DiagTrack: Habilita o serviço de rastreamento de diagnósticos e telemetria para o Windows.<br>
@@ -49,13 +50,13 @@ WbioSrvc: Habilita a coleta e comparação de dados biométricos (ex: impressão
 BcastDVRUserService: Suporta a gravação de jogos e a transmissão (Game DVR/Xbox Game Bar).<br>
 lfsvc: Fornece serviços de localização geográfica para o dispositivo.<br>
 
-Configurar o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
+**7.** Configura o dns do sistema para o da Cloudflare(1.1.1.1 / 1.0.0.1)<br>
 
-Desligar a aceleração do mouse e configurar a sensibilidade<br>
+**8.** Desliga a aceleração do mouse e configura a sensibilidade<br>
 
-Identificar a fabricante da GPU e abrir o site dos drivers<br>
+**9.** Identifica a fabricante da GPU e abri o site dos drivers<br>
 
-Abrir as configurações de desempenho do Windows<br>
+**10.** Abre as configurações de desempenho do Windows<br>
 
 ## Como usar
 Baixe o arquivo do script (.bat).<br>
@@ -69,7 +70,6 @@ Privilégios de Administrador.<br>
 O script modifica chaves do registro e remove aplicativos internos, então use com cuidado.<br>
 As alterações são aplicadas ao usuário atual e configurações do sistema, mas não se aplicam automaticamente a novos perfis de usuário.<br>
 Alguns aplicativos e configurações podem variar dependendo da versão do Windows.<br>
-
 
 ---
 
