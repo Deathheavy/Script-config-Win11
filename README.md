@@ -54,7 +54,7 @@ lfsvc: Fornece serviços de localização geográfica para o dispositivo.<br>
 
 **8.** Desliga a aceleração do mouse e configura a sensibilidade<br>
 
-**9.** Identifica a fabricante da GPU e abri o site dos drivers<br>
+**9.** Identifica a fabricante da GPU e abre o site dos drivers<br>
 
 **10.** Abre as configurações de desempenho do Windows<br>
 
