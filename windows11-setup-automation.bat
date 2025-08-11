@@ -147,7 +147,7 @@ echo Desativando servicos desnecessarios...
 echo =========================================
 
 :: Lista de serviços a desativar (seguro para maioria dos PCs domésticos)
-set "services=DiagTrack RetailDemo DiagnosticPolicyService SysMain Fax MapsBroker WSearch WMPNetworkSvc SCardSvr PrintSpooler RemoteRegistry RemoteAccess RemoteDesktopServices SharedAccess WindowsInsiderService TabletInputService bthserv PhoneSvc WbioSrvc BcastDVRUserService lfsvc"
+set "services=DiagTrack RetailDemo DiagnosticPolicyService SysMain Fax MapsBroker WSearch WMPNetworkSvc SCardSvr PrintSpooler Spooler RemoteRegistry RemoteAccess RemoteDesktopServices SharedAccess WindowsInsiderService TabletInputService bthserv BTAGService PhoneSvc WbioSrvc BcastDVRUserService lfsvc"
 
 for %%s in (%services%) do (
     echo Desativando o servico %%s ...
@@ -155,6 +155,31 @@ for %%s in (%services%) do (
     sc config %%s start= disabled >nul 2>&1
     echo -----------------------------------------
 )
+
+:: Desativar máquinas virtuais do Hyper V
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HvHost" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmickvpexchange" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicguestinterface" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicshutdown" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicheartbeat" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicvmsession" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicrdv" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmictimesync" /v "Start" /t REG_DWORD /d 4 /f
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmicvss" /v "Start" /t REG_DWORD /d 4 /f
+
+:: Transferência de lista inteligente em segundo plano
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BITS" /v "Start" /t REG_DWORD /d 4 /f
+
+:: Audio VR
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\QWAVE" /v "Start" /t REG_DWORD /d 4 /f
 
 echo =========================================
 echo Removendo Cortana, Copilot e Recall...
@@ -275,10 +300,14 @@ echo =========================================
 echo O site de drivers da sua GPU foi aberto em seu navegador e a aba de opcoes de desempenho do Windows foi iniciada
 echo Faca o download do driver atualizado da sua GPU.
 echo E nas Opcoes de Desempenho marque a opcao Customizado e depois marque
+echo .
+echo .
 echo Mostrar miniaturas em vez de icones
 echo Mostrar retangulo de selecao translucido
 echo Bordas suaves das fontes da tela
 echo Use sombras projetadas para rotulos de icones na area de trabalho
+echo .
+echo .
 echo Apos configurar e aplicar as configuracoes na aba de desempenho
 echo clique em ok nas opcoes de desempenho para fechar a janela
 
@@ -289,6 +318,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
