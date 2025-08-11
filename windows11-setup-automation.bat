@@ -248,13 +248,6 @@ ipconfig /flushdns >nul 2>&1
 net stop Dnscache >nul 2>&1
 net start Dnscache >nul 2>&1
 
-:: Configurar DNS over HTTPS via registro
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v EnableAutoDoh /t REG_DWORD /d 2 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_1 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters" /v DoHTemplate_2 /t REG_SZ /d "https://security.cloudflare-dns.com/dns-query" /f
-
-echo DNS over HTTPS configurado via registro.
-
 :end_dns_config
 endlocal
 
@@ -318,6 +311,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
