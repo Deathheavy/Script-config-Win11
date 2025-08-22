@@ -208,6 +208,23 @@ REG ADD "HKCU\Control Panel\Mouse" /v MouseThreshold2 /d 0 /t REG_SZ /f
 REG ADD "HKCU\Control Panel\Mouse" /v MouseSensitivity /d 10 /t REG_SZ /f
 
 echo =========================================
+echo Desativando recursos indesejados do Brave...
+echo =========================================
+
+:: Desativar Brave Rewards
+reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveRewardsDisabled" /t REG_DWORD /d 1 /f
+
+:: Desativar Brave Wallet
+reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveWalletDisabled" /t REG_DWORD /d 1 /f
+
+:: Desativar Brave VPN
+reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveVPNDisabled" /t REG_DWORD /d 1 /f
+
+:: Desativar Leo AI Chat
+reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveAIChatEnabled" /t REG_DWORD /d 0 /f
+
+
+echo =========================================
 echo Configurando DNS no adaptador de rede ativo...
 echo =========================================
 
@@ -308,6 +325,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
