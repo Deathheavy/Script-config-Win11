@@ -234,6 +234,17 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Config
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v "IsOneDriveResumeAllowed" /t REG_DWORD /d 0 /f
 
 echo =========================================
+echo Desativando sugestoes da pesquisa do Windows (Bing / online)...
+echo =========================================
+
+:: Criar chave se nao existir e desativar sugestoes da caixa de pesquisa
+reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBoxSuggestions" /t REG_DWORD /d 1 /f
+
+:: Reiniciar o Explorer para aplicar a mudanca imediatamente
+taskkill /f /im explorer.exe >nul 2>&1
+start explorer.exe
+
+echo =========================================
 echo Configurando DNS no adaptador de rede ativo...
 echo =========================================
 
@@ -334,6 +345,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
