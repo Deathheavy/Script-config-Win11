@@ -234,6 +234,17 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Config
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v "IsOneDriveResumeAllowed" /t REG_DWORD /d 0 /f
 
 echo =========================================
+echo Remover Home e Galeria do explorer...
+echo =========================================
+
+REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}" /f
+REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}" /f
+
+:: Definir o comportamento do Explorador de Arquivos (Abrir no "Este Computador")
+REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
+
+
+echo =========================================
 echo Desativando sugestoes da pesquisa do Windows (Bing / online)...
 echo =========================================
 
@@ -345,6 +356,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
