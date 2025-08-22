@@ -223,6 +223,15 @@ reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveVPNDisabled" /t RE
 :: Desativar Leo AI Chat
 reg add "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /v "BraveAIChatEnabled" /t REG_DWORD /d 0 /f
 
+echo =========================================
+echo Desativando CrossDevice Resume...
+echo =========================================
+
+:: Bloquear retomada de atividades entre dispositivos
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v "IsResumeAllowed" /t REG_DWORD /d 0 /f
+
+:: Bloquear retomada de atividades via OneDrive
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CrossDeviceResume\Configuration" /v "IsOneDriveResumeAllowed" /t REG_DWORD /d 0 /f
 
 echo =========================================
 echo Configurando DNS no adaptador de rede ativo...
@@ -325,6 +334,7 @@ echo Todas as operacoes foram concluidas.
 echo Reinicie o computador para aplicar todas as configuracoes.
 echo =========================================
 pause
+
 
 
 
